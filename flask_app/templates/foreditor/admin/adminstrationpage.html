@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/my_style.css') }}">
+    <!---->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+    <title>Administrimi</title>
+</head>
+<body class="">
+    <header class="w-100">
+        <nav class="navbar bg-secondary ">
+            <div class="container-fluid center">
+            <h1 class="navbar-brand ">Administrimi {{users.username}}</h1>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">{{users.username}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="btn btn-outline-secondary nav-link active  my-2" aria-current="page" href="/foreditor/Dashboard">Dashboard</a>
+                    </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-secondary nav-link my-2" aria-current="page" href="/foreditor/createnews">Create News</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-secondary nav-link  my-2" aria-current="page" href="#">Statistics</a>
+                </li>
+                {%if users.username == 'Admin'%}
+                <li class="nav-item">
+                    <a class="btn btn-outline-secondary nav-link  my-2" aria-current="page" href="/foreditor/admin/adminstration">Administrimi</a>
+                </li>
+                {% endif %}
+                {%if users.username == 'Manager'%}
+                <li class="nav-item">
+                    <a class="btn btn-outline-secondary nav-link  my-2" aria-current="page" href="#">Menaxhimi</a>
+                </li>
+                {% endif %}
+                <br>
+                <li class="nav-item">
+                    <a class="btn btn-outline-danger nav-link  my-2" href="/logout">Log Out</a>
+                </li>
+                </ul>
+            </div>
+        </div>
+        </nav>
+    </header>
+    <br>
+    <article class="container">
+        <section id="sidebar"></section>
+        
+        <section id="content" class="text-center ">
+            <div class="col">
+                <h1>
+                    <a class="btn form-control btn-outline-dark" data-bs-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="true" aria-controls="multiCollapseExample3">Staff</a>
+                </h1>
+                    <div class="collapse multi-collapse" id="multiCollapseExample3">
+                            <table id="data" class="table table-striped-columns table-primary">
+                                <thead>
+                                <tr >
+                                    <th>ID</th>
+                                    <th>Position</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Details</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for allusers in allusers %}
+                                    <tr>
+                                        <td> {{allusers.id}}</td>
+                                        <td> {{allusers.position}}</td>
+                                        <td> {{allusers.username}}</td>
+                                        <td> {{allusers.email}}</td>
+                                        <td> <a href="#" type="button" class="btn btn-outline-danger">Details</a></td>
+                                    </tr>
+                                {%endfor%}
+                                </tbody>
+                            </table>
+                            <a class="form-control my-3 btn btn-dark" aria-current="page" href="/foreditor/admin/addnewuser">Add New User</a>
+                        </div>
+                    </table>
+            </div>
+            <div class="col">
+                <h1>
+                    <a class="btn form-control btn-outline-dark" data-bs-toggle="collapse" href="#multiCollapseExample" role="button" aria-expanded="true" aria-controls="multiCollapseExample">Posted News Data</a>
+                </h1>
+                <div class="collapse multi-collapse" id="multiCollapseExample3">
+                <img src="{{chart_file}}" alt="Post">
+                </div>
+            </div>
+            <hr>
+        </section>
+        
+        <aside > </aside>
+    </article>
+    <br>
+    <hr>
+    <footer class="">
+        <div class="text-center bg-secondary ">
+            <!-- Copyright -->
+            <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023 Copyright:
+            <a class="text-dark" href="#">Albania Daily Life</a>
+            </div>
+        </div>
+            <!-- Copyright -->
+    </footer> 
+    <script>
+        $(document).ready(function () {
+            $('#data').DataTable();
+        });
+        /*********************************************/
+        
+    </script>
+</body>
+</html>

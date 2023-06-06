@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/editor.js') }}"></script>
+		<script>
+			$(document).ready(function() {
+				$("#txtEditor").Editor();
+			});
+		</script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/editor.css') }}">
+		<title>LineControl | v1.1.0</title>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<h2 class="demo-text">LineControl Demo</h2>
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 nopadding">
+							<textarea id="txtEditor"></textarea> 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+    
+			<div class="row">
+		
+			<div class="four col-md-3">
+				<div class="counter-box colored">
+					<i class="fa fa-thumbs-o-up"></i>
+					<span class="counter">2147</span>
+					<p>Happy Customers</p>
+				</div>
+			</div>
+			<div class="four col-md-3">
+				<div class="counter-box">
+					<i class="fa fa-group"></i>
+					<span class="counter">3275</span>
+					<p>Registered Members</p>
+				</div>
+			</div>
+			<div class="four col-md-3">
+				<div class="counter-box">
+					<i class="fa  fa-shopping-cart"></i>
+					<span class="counter">289</span>
+					<p>Available Products</p>
+				</div>
+			</div>
+			<div class="four col-md-3">
+				<div class="counter-box">
+					<i class="fa  fa-user"></i>
+					<span class="counter">1563</span>
+					<p>Saved Trees</p>
+				</div>
+			</div>
+		</div>	
+		</div>
+		<script>
+			$(document).ready(function() {
+
+					$('.counter').each(function () {
+				$(this).prop('Counter',0).animate({
+					Counter: $(this).text()
+				}, {
+					duration: 4000,
+					easing: 'swing',
+					step: function (now) {
+						$(this).text(Math.ceil(now));
+					}
+				});
+			});
+			
+			});  
+		</script>
+	</body>
+</html>

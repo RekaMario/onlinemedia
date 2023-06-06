@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/frontend.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/06ec993b85.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/my_script.js') }}"></script>
+
+    <title>Bota</title>
+</head>
+<body onload="startTime()" class=" m-auto">
+    <header>
+        <div class="container-fluid m-auto">
+            <ul class="nav nav-pills nav-fill gap-2 p-2 small bg-dark rounded-5 shadow-sm" id="pillNav2" role="tablist" style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link  rounded-5" id="home-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">
+                    <i class="fa-solid fa-house"></i><a href="/" class="text-decoration-none text-danger p-4">Homepage</a> 
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">
+                    <i class="fa-solid fa-bolt-lightning">  </i> <a href="/Fundit" class="text-decoration-none text-primary">Lajmi Fundit</a>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link rounded-5" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">
+                    <i class="fa-solid fa-location-dot">  </i>  <a href="/Aktualitet" class="text-decoration-none text-info">Aktualitet</a> 
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">
+                    <i class="fa-solid  fa-earth-americas"> </i>  <a href="/Bota" class="text-decoration-none text-warning"> Bota</a>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link rounded-5" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="true">
+                    <i class="fa-solid fa-star"></i><a class="text-decoration-none text-danger" href="/ShowBiz">Show Biz</a>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">
+                    <i class="fa-thin fa-clover"></i><a href="/Horoskopi" class="text-decoration-none text-warning">Horoskopi</a>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link rounded-5" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">
+                    <i class="fa-solid fa-futbol"></i><a href="/Sport" class="text-decoration-none text-success"> Sport</a>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">
+                    <i class="fa-solid fa-landmark"></i><a href="/Kultura" class="text-decoration-none text-info">Kulture</a>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <div class="dropdown">
+                    <button class="nav-link rounded-5" id="profile-tab2"  type="button" data-bs-toggle="dropdown" aria-expanded="false">Te tjera</button>
+                    <ul class="dropdown-menu  bg-dark">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link rounded-5" id="profile-tab2"  type="button"  aria-expanded="false">
+                                <a href="/Ekonomi" class="text-decoration-none text-info">Ekonomi</a>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation"><button class="nav-link rounded-5" id="profile-tab2"  type="button" aria-expanded="false"><a href="/Intervista" class="dropdown-item text-decoration-none text-info">Intervista</a></button></li>
+                        <li class="nav-item" role="presentation"><button  class="nav-link rounded-5" id="profile-tab2"  type="button" aria-expanded="false"><a href="/Politik" class="dropdown-item text-decoration-none text-info">Politik</a></button></li>
+                        <li class="nav-item" role="presentation"><button  class="nav-link rounded-5" id="profile-tab2"  type="button" aria-expanded="false"><a href="/Opinion" class="dropdown-item text-decoration-none text-info">Opinion</a></button></li>
+                        <li class="nav-item" role="presentation"><button  class="nav-link rounded-5" id="profile-tab2"  type="button" aria-expanded="false"><a href="/Njoftime" class="dropdown-item text-decoration-none text-info">Njoftime</a></button></li>
+                        <li class="nav-item" role="presentation"><button  class="nav-link rounded-5" id="profile-tab2"  type="button" aria-expanded="false"><a href="/Guzhine" class="dropdown-item text-decoration-none text-info">Guzhine</a></button></li>
+                        <li class="nav-item" role="presentation"><button  class="nav-link rounded-5" id="profile-tab2"  type="button" aria-expanded="false"><a href="/Fashion" class="dropdown-item text-decoration-none text-info">Fashion</a></button></li>
+                        <li class="nav-item" role="presentation"><button  class="nav-link rounded-5" id="profile-tab2"  type="button" aria-expanded="false"><a href="/Blog" class="dropdown-item text-decoration-none text-info">Blog</a></button></li>
+                    </ul>
+                </div>
+            </li>
+            </ul>
+        </div>
+    </header>
+    <article class="container-fluid d-flex justify-content-around m-auto">
+        <section id="sidebar" class=" w-25">
+            <div id="calendar"></div>
+            <div id="clock"></div>
+            {% for lasts1new in lasts1news %}
+            <div class="d-flex flex-row my-2 flex-grow-1 ">
+                <img src="/static/img/{{lasts1new.image}}" alt="{{lasts1new.image}}" id="imgvideo4" class="rounded">
+                <div class="d-flex flex-column">
+                <h4>{{ lasts1new.title }}</h4>
+                <p>{{ lasts1new.updated_at }}</p>
+                <a href="/forpost/readpost/{{lasts1new.id}}">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+            <div class="border border-dark">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3733294733069870"
+                    crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-format="fluid"
+                        data-ad-layout-key="-ef+6q-36-dw+111"
+                        data-ad-client="ca-pub-3733294733069870"
+                        data-ad-slot="4099876891">
+                    </ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            {% for lasts3new in lasts3news %}
+            <div class="d-flex flex-row my-2 flex-grow-1">
+                <img src="/static/img/{{lasts3new.image}}" alt="{{lasts3new.image}}" id="imgvideo4" class="rounded">
+                <div class="d-flex flex-column">
+                <h4>{{ lasts3new.title }}</h4>
+                <p>{{ lasts3new.updated_at }}</p>
+                <a href="/forpost/readpost/{{lasts3new.id}}">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+            {% for lasts4new in lasts4news %}
+            <div class="d-flex flex-row my-2 flex-grow-1">
+                <img src="/static/img/{{lasts4new.image}}" alt="{{lasts4new.image}}" id="imgvideo4" class="rounded">
+                <div class="d-flex flex-column">
+                <h4>{{ lasts4new.title }}</h4>
+                <p>{{ lasts4new.updated_at }}</p>
+                <a href="/forpost/readpost/{{lasts4new.id}}">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+            {% for lasts5new in lasts5news %}
+            <div class="d-flex flex-row my-2 flex-grow-1 ">
+                <img src="/static/img/{{lasts5new.image}}" alt="{{lasts5new.image}}" id="imgvideo4" class="rounded">
+                <div class="d-flex flex-column">
+                <h4>{{ lasts5new.title }}</h4>
+                <p>{{ lasts5new.updated_at }}</p>
+                <a href="/forpost/readpost/{{lasts5new.id}}">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+            <div class="border border-dark">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3733294733069870"
+                    crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-format="fluid"
+                        data-ad-layout-key="-ef+6q-36-dw+111"
+                        data-ad-client="ca-pub-3733294733069870"
+                        data-ad-slot="4099876891">
+                    </ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            {% for lasts6new in lasts6news %}
+            <div class="d-flex flex-row my-2 flex-grow-1 ">
+                <img src="/static/img/{{lasts6new.image}}" alt="{{lasts6new.image}}" id="imgvideo4" class="rounded">
+                <div class="d-flex flex-column">
+                <h4>{{ lasts6new.title }}</h4>
+                <p>{{ lasts6new.updated_at }}</p>
+                <a href="/forpost/readpost/{{lasts6new.id}}">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+            <div class="border border-dark">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3733294733069870"
+                    crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-format="fluid"
+                        data-ad-layout-key="-ef+6q-36-dw+111"
+                        data-ad-client="ca-pub-3733294733069870"
+                        data-ad-slot="4099876891">
+                    </ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            {% for lasts7new in lasts7news %}
+            <div class="d-flex flex-row my-2 flex-grow-1 ">
+                <img src="/static/img/{{lasts7new.image}}" alt="{{lasts7new.image}}" id="imgvideo4" class="rounded">
+                <div class="d-flex flex-column">
+                <h4>{{ lasts7new.title }}</h4>
+                <p>{{ lasts7new.updated_at }}</p>
+                <a href="/forpost/readpost/{{lasts7new.id}}">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+            <div class="border border-dark">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3733294733069870"
+                    crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-format="fluid"
+                        data-ad-layout-key="-ef+6q-36-dw+111"
+                        data-ad-client="ca-pub-3733294733069870"
+                        data-ad-slot="4099876891">
+                    </ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            {% for lasts8new in lasts8news %}
+            <div class="d-flex flex-row my-2 flex-grow-1 ">
+                <img src="/static/img/{{lasts8new.image}}" alt="{{lasts8new.image}}" id="imgvideo4" class="rounded">
+                <div class="d-flex flex-column">
+                <h4>{{ lasts8new.title }}</h4>
+                <p>{{ lasts8new.updated_at }}</p>
+                <a href="/forpost/readpost/{{lasts8new.id}}">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+            <div class="border border-dark">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3733294733069870"
+                    crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-format="fluid"
+                        data-ad-layout-key="-ef+6q-36-dw+111"
+                        data-ad-client="ca-pub-3733294733069870"
+                        data-ad-slot="4099876891">
+                    </ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            {% for lasts9new in lasts9news %}
+            <div class="d-flex flex-row my-2 flex-grow-1 ">
+                <img src="/static/img/{{lasts9new.image}}" alt="{{lasts9new.image}}" id="imgvideo4" class="rounded">
+                <div class="d-flex flex-column">
+                <h4>{{ lasts9new.title }}</h4>
+                <p>{{ lasts9new.updated_at }}</p>
+                <a href="/forpost/readpost/{{lasts9new.id}}">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+            {% for lasts10new in lasts10news %}
+            <div class="d-flex flex-row my-2 flex-grow-1 ">
+                <img src="/static/img/{{lasts10new.image}}" alt="{{lasts10new.image}}" id="imgvideo4" class="rounded">
+                <div class="d-flex flex-column">
+                <h4>{{ lasts10new.title }}</h4>
+                <p>{{ lasts10new.updated_at }}</p>
+                <a href="/forpost/readpost/{{lasts10new.id}}">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+            <div class="border border-dark">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3733294733069870"
+                    crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-format="fluid"
+                        data-ad-layout-key="-ef+6q-36-dw+111"
+                        data-ad-client="ca-pub-3733294733069870"
+                        data-ad-slot="4099876891">
+                    </ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            {% for lasts11new in lasts11news %}
+            <div class="d-flex flex-row my-2 flex-grow-1 ">
+                <img src="/static/img/{{lasts11new.image}}" alt="{{lasts11new.image}}" id="imgvideo4" class="rounded">
+                <div class="d-flex flex-column">
+                <h4>{{ lasts11new.title }}</h4>
+                <p>{{ lasts11new.updated_at }}</p>
+                <a href="/forpost/readpost/{{lasts11new.id}}">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+            <div class="border border-dark">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3733294733069870"
+                    crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-format="fluid"
+                        data-ad-layout-key="-ef+6q-36-dw+111"
+                        data-ad-client="ca-pub-3733294733069870"
+                        data-ad-slot="4099876891">
+                    </ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            {% for lasts12new in lasts12news %}
+            <div class="d-flex flex-row my-2 flex-grow-1 ">
+                <img src="/static/img/{{lasts12new.image}}" alt="{{lasts12new.image}}" id="imgvideo4" class="rounded">
+                <div class="d-flex flex-column">
+                <h4>{{ lasts12new.title }}</h4>
+                <p>{{ lasts12new.updated_at }}</p>
+                <a href="/forpost/readpost/{{lasts12new.id}}">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+            <div class="border border-dark">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3733294733069870"
+                    crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-format="fluid"
+                        data-ad-layout-key="-ef+6q-36-dw+111"
+                        data-ad-client="ca-pub-3733294733069870"
+                        data-ad-slot="4099876891">
+                    </ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            {% for lasts13new in lasts13news %}
+            <div class="d-flex flex-row my-2 flex-grow-1 ">
+                <img src="/static/img/{{lasts13new.image}}" alt="{{lasts13new.image}}" id="imgvideo4" class="rounded">
+                <div class="d-flex flex-column">
+                <h4>{{ lasts13new.title }}</h4>
+                <p>{{ lasts13new.updated_at }}</p>
+                <a href="/forpost/readpost/{{lasts13new.id}}">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+            {% for lasts14new in lasts14news %}
+            <div class="d-flex flex-row my-2 flex-grow-1 ">
+                <img src="/static/img/{{lasts14new.image}}" alt="{{lasts14new.image}}" id="imgvideo4" class="rounded">
+                <div class="d-flex flex-column">
+                <h4>{{ lasts14new.title }}</h4>
+                <p>{{ lasts14new.updated_at }}</p>
+                <a href="/forpost/readpost/{{lasts14new.id}}">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+            <div class="border border-dark">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3733294733069870"
+                    crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-format="fluid"
+                        data-ad-layout-key="-ef+6q-36-dw+111"
+                        data-ad-client="ca-pub-3733294733069870"
+                        data-ad-slot="4099876891">
+                    </ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            {% for lasts15new in lasts15news %}
+            <div class="d-flex flex-row my-2 flex-grow-1 ">
+                <img src="/static/img/{{lasts15new.image}}" alt="{{lasts15new.image}}" id="imgvideo4" class="rounded">
+                <div class="d-flex flex-column">
+                <h4>{{ lasts15new.title }}</h4>
+                <p>{{ lasts15new.updated_at }}</p>
+                <a href="/forpost/readpost/{{lasts15new.id}}">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+            <div class="border border-dark">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3733294733069870"
+                    crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-format="fluid"
+                        data-ad-layout-key="-ef+6q-36-dw+111"
+                        data-ad-client="ca-pub-3733294733069870"
+                        data-ad-slot="4099876891">
+                    </ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            {% for lasts16new in lasts16news %}
+            <div class="d-flex flex-row my-2 flex-grow-1 ">
+                <img src="/static/img/{{lasts16new.image}}" alt="{{lasts16new.image}}" id="imgvideo4" class="rounded">
+                <div class="d-flex flex-column">
+                <h4>{{ lasts16new.title }}</h4>
+                <p>{{ lasts16new.updated_at }}</p>
+                <a href="/forpost/readpost/{{lasts16new.id}}">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+        </section>
+        <section id="content" class="text-center w-75 mx-2">
+            <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                </div>
+                <div class="carousel-inner">
+                    {% for lastnew in lastnews %}
+                    <div class="carousel-item active">
+                        <img src="/static/img/{{lastnew.image}}" alt="{{lastnew.image}}" id="imgvideo3" class="rounded">
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <h5>{{ lastnew.title }}</h5>
+                            <p><a class="btn btn-lg btn-primary" href="#">Test </a></p>
+                        </div>
+                    </div>
+                    </div>
+                    {% endfor %}
+                    {% for third in thirds %}
+                    <div class="carousel-item">
+                    <img src="/static/img/{{third.image}}" alt="{{third.image}}" id="imgvideo3" class="rounded">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>{{ third.title }}</h1>
+                            <p><a class="btn btn-lg btn-primary" href="#">Test2 </a></p>
+                        </div>
+                    </div>
+                    </div>
+                    {% endfor %}
+                    {% for fourth in fourths %}
+                    <div class="carousel-item">
+                    <img src="/static/img/{{fourth.image}}" alt="{{fourth.image}}" id="imgvideo3" class="rounded">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>{{ fourth.title }}</h1>
+                            <p><a class="btn btn-lg btn-primary" href="#">Test2 </a></p>
+                        </div>
+                    </div>
+                    </div>
+                    {% endfor %}
+                    {% for secondpost in secondposts %}
+                    <div class="carousel-item">
+                    <img src="/static/img/{{secondpost.image}}" alt="{{secondpost.image}}" id="imgvideo3" class="rounded">
+                    <div class="container">
+                        <div class="carousel-caption text-end">
+                            <h1>{{ secondpost.title }}</h1>
+                            <p><a class="btn btn-lg btn-primary" href="#">Lexo Me Shume </a></p>
+                        </div>
+                    </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Prev</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <div class="border border-dark my-2 card">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3733294733069870"
+                    crossorigin="anonymous"></script>
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-format="fluid"
+                    data-ad-layout-key="-gw-3+1f-3d+2z"
+                    data-ad-client="ca-pub-3733294733069870"
+                    data-ad-slot="8757307209">
+                </ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <div>
+            {% for categorie in categories %}
+            <div class="d-flex flex-row my-2 flex-grow-1">
+                <img src="/static/img/{{categorie.image}}" alt="{{categorie.image}}" id="imgvideo" class="rounded">
+                <div class="d-flex flex-column">
+                <h4>{{ categorie.title }}</h4>
+                <p>{{ categorie.updated_at }}</p>
+                <a href="#">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+            </div>
+        <hr>
+        <h4 class="text-start">Aktualitet</h4>
+        <div class="d-flex justify-content-end">
+            {% for last4new in last4news %}
+            <div class="d-flex flex-row my-2 w-50 flex-grow-1 p-2">
+                <img src="/static/img/{{last4new.image}}" alt="{{last4new.image}}" id="imgvideo5" class="rounded">
+                <div class="d-flex flex-column">
+                <h5>{{ last4new.title }}</h5>
+                <h5>{{ last4new.categories }}</h5>
+                <p>{{ last4new.updated_at }}</p>
+                <a href="#">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+        </div>
+        <hr>
+        <h4 class="text-start">Rajoni</h4>
+        <div class="d-flex justify-content-end">
+            {% for last43new in last43news %}
+            <div class="d-flex flex-row my-2 w-50 flex-grow-1 p-2">
+                <img src="/static/img/{{last43new.image}}" alt="{{last43new.image}}" id="imgvideo5" class="rounded">
+                <div class="d-flex flex-column">
+                <h5>{{ last43new.title }}</h5>
+                <h5>{{ last43new.categories }}</h5>
+                <p>{{ last43new.updated_at }}</p>
+                <a href="#">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+        </div>
+        <hr>
+        <div class="border border-dark">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3733294733069870"
+                crossorigin="anonymous"></script>
+                <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-format="fluid"
+                data-ad-layout-key="-ef+6q-36-dw+111"
+                data-ad-client="ca-pub-3733294733069870"
+                data-ad-slot="4099876891"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <hr>
+        <h4 class="text-start">Bota</h4>
+        <div class="d-flex justify-content-end">
+            {% for last44new in last44news %}
+            <div class="d-flex flex-row my-2 w-50 flex-grow-1 p-2">
+                <img src="/static/img/{{last44new.image}}" alt="{{last44new.image}}" id="imgvideo5" class="rounded">
+                <div class="d-flex flex-column">
+                <h5>{{ last44new.title }}</h5>
+                <h5>{{ last44new.categories }}</h5>
+                <p>{{ last44new.updated_at }}</p>
+                <a href="#">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+        </div>
+        <hr>
+        <h4 class="text-start">Kultura</h4>
+        <div class="d-flex justify-content-end">
+            {% for last45new in last45news %}
+            <div class="d-flex flex-row my-2 w-50 flex-grow-1 p-2">
+                <img src="/static/img/{{last45new.image}}" alt="{{last45new.image}}" id="imgvideo5" class="rounded">
+                <div class="d-flex flex-column">
+                <h5>{{ last45new.title }}</h5>
+                <h5>{{ last45new.categories }}</h5>
+                <p>{{ last45new.updated_at }}</p>
+                <a href="#">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+        </div>
+        <hr>
+        <div class="border border-dark">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3733294733069870"
+            crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-format="fluid"
+            data-ad-layout-key="-ef+6q-36-dw+111"
+            data-ad-client="ca-pub-3733294733069870"
+            data-ad-slot="4099876891"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        </div>
+        <hr>
+        <h4 class="text-start">Horoskopi</h4>
+        <div class="d-flex justify-content-end">
+            {% for last46new in last46news %}
+            <div class="d-flex flex-row my-2 w-50 flex-grow-1 p-2">
+                <img src="/static/img/{{last46new.image}}" alt="{{last46new.image}}" id="imgvideo5" class="rounded">
+                <div class="d-flex flex-column">
+                <h5>{{ last46new.title }}</h5>
+                <h5>{{ last46new.categories }}</h5>
+                <p>{{ last46new.updated_at }}</p>
+                <a href="#">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+        </div>
+        <hr>
+        <h4 class="text-start">Showbizz</h4>
+        <div class="d-flex justify-content-end">
+            {% for last47new in last47news %}
+            <div class="d-flex flex-row my-2 w-50 flex-grow-1 p-2">
+                <img src="/static/img/{{last47new.image}}" alt="{{last47new.image}}" id="imgvideo5" class="rounded">
+                <div class="d-flex flex-column">
+                <h5>{{ last47new.title }}</h5>
+                <h5>{{ last47new.categories }}</h5>
+                <p>{{ last47new.updated_at }}</p>
+                <a href="#">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+        </div>
+        <hr>
+        <h4 class="text-start">Sport</h4>
+        <div class="d-flex justify-content-end">
+            {% for last48new in last48news %}
+            <div class="d-flex flex-row my-2 w-50 flex-grow-1 p-2">
+                <img src="/static/img/{{last48new.image}}" alt="{{last48new.image}}" id="imgvideo5" class="rounded">
+                <div class="d-flex flex-column">
+                <h5>{{ last48new.title }}</h5>
+                <h5>{{ last48new.categories }}</h5>
+                <p>{{ last48new.updated_at }}</p>
+                <a href="#">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+        </div>
+        <hr>
+        <h4 class="text-start">Ekonomi</h4>
+        <div class="d-flex justify-content-end">
+            {% for last49new in last49news %}
+            <div class="d-flex flex-row my-2 w-50 flex-grow-1 p-2">
+                <img src="/static/img/{{last49new.image}}" alt="{{last49new.image}}" id="imgvideo5" class="rounded">
+                <div class="d-flex flex-column">
+                <h5>{{ last49new.title }}</h5>
+                <h5>{{ last49new.categories }}</h5>
+                <p>{{ last49new.updated_at }}</p>
+                <a href="#">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+        </div>
+        <hr>
+        <h4 class="text-start">Intervista</h4>
+        <div class="d-flex justify-content-end">
+            {% for last410new in last410news %}
+            <div class="d-flex flex-row my-2 w-50 flex-grow-1 p-2">
+                <img src="/static/img/{{last410new.image}}" alt="{{last410new.image}}" id="imgvideo5" class="rounded">
+                <div class="d-flex flex-column">
+                <h5>{{ last410new.title }}</h5>
+                <h5>{{ last410new.categories }}</h5>
+                <p>{{ last410new.updated_at }}</p>
+                <a href="#">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+        </div>
+        <hr>
+        <h4 class="text-start">Politik</h4>
+        <div class="d-flex justify-content-end">
+            {% for last411new in last411news %}
+            <div class="d-flex flex-row my-2 w-50 flex-grow-1 p-2">
+                <img src="/static/img/{{last411new.image}}" alt="{{last411new.image}}" id="imgvideo5" class="rounded">
+                <div class="d-flex flex-column">
+                <h5>{{ last411new.title }}</h5>
+                <h5>{{ last411new.categories }}</h5>
+                <p>{{ last411new.updated_at }}</p>
+                <a href="#">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+        </div>
+        <hr>
+        <h4 class="text-start">Njoftime</h4>
+        <div class="d-flex justify-content-end">
+            {% for last412new in last412news %}
+            <div class="d-flex flex-row my-2 w-50 flex-grow-1 p-2">
+                <img src="/static/img/{{last412new.image}}" alt="{{last412new.image}}" id="imgvideo5" class="rounded">
+                <div class="d-flex flex-column">
+                <h5>{{ last412new.title }}</h5>
+                <h5>{{ last412new.categories }}</h5>
+                <p>{{ last412new.updated_at }}</p>
+                <a href="#">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+        </div>
+        <hr>
+        <h4 class="text-start">Guzhine</h4>
+        <div class="d-flex justify-content-end">
+            {% for last413new in last413news %}
+            <div class="d-flex flex-row my-2 w-50 flex-grow-1 p-2">
+                <img src="/static/img/{{last413new.image}}" alt="{{last413new.image}}" id="imgvideo5" class="rounded">
+                <div class="d-flex flex-column">
+                <h5>{{ last413new.title }}</h5>
+                <h5>{{ last413new.categories }}</h5>
+                <p>{{ last413new.updated_at }}</p>
+                <a href="#">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+        </div>
+        <hr>
+        <h4 class="text-start">Fashion</h4>
+        <div class="d-flex justify-content-end">
+            {% for last414new in last414news %}
+            <div class="d-flex flex-row my-2 w-50 flex-grow-1 p-2">
+                <img src="/static/img/{{last414new.image}}" alt="{{last414new.image}}" id="imgvideo5" class="rounded">
+                <div class="d-flex flex-column">
+                <h5>{{ last414new.title }}</h5>
+                <h5>{{ last414new.categories }}</h5>
+                <p>{{ last414new.updated_at }}</p>
+                <a href="#">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+        </div>
+        <hr>
+        <h4 class="text-start">Blog</h4>
+        <div class="d-flex justify-content-end">
+            {% for last415new in last415news %}
+            <div class="d-flex flex-row my-2 w-50 flex-grow-1 p-2">
+                <img src="/static/img/{{last415new.image}}" alt="{{last415new.image}}" id="imgvideo5" class="rounded">
+                <div class="d-flex flex-column">
+                <h5>{{ last415new.title }}</h5>
+                <h5>{{ last415new.categories }}</h5>
+                <p>{{ last415new.updated_at }}</p>
+                <a href="#">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+        </div>
+        <hr>
+        <h4 class="text-start">Opinion</h4>
+        <div class="d-flex justify-content-end">
+            {% for last416new in last416news %}
+            <div class="d-flex flex-row my-2 w-50 flex-grow-1 p-2">
+                <img src="/static/img/{{last416new.image}}" alt="{{last416new.image}}" id="imgvideo5" class="rounded">
+                <div class="d-flex flex-column">
+                <h5>{{ last416new.title }}</h5>
+                <h5>{{ last416new.categories }}</h5>
+                <p>{{ last416new.updated_at }}</p>
+                <a href="#">Lexo me shume</a>
+                </div>
+            </div> 
+            {% endfor %}
+        </div>
+        <hr>
+        </section>
+        <aside class="w-25 mt-5">
+            <div>
+                {% for posts in allposts %}
+                <div class="d-flex flex-row my-2 flex-grow-1 ">
+                    <img src="/static/img/{{posts.image}}" alt="{{posts.image}}" id="imgvideo4" class="rounded">
+                    <div class="d-flex flex-column " >
+                    <h4>{{ posts.title }}</h4>
+                    <p>{{ posts.subtitle }}</p>
+                    <p>{{ posts.updated_at }}</p>
+                    <a href="#">Lexo me shume</a>
+                    </div>
+                </div> 
+                {% endfor %}
+            </div>
+        </aside>
+    </article>
+<!-- Footer -->
+<section id="footer">
+    <div class="container">
+        <div class="row text-center text-xs-center text-sm-left text-md-left">
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <h5>Kryesoret</h5>
+                <ul class="list-unstyled quick-links">
+                    <li><a href="/"><i class="fa fa-angle-double-right"></i>Homepage</a></li>
+                    <li><a href="/Aktualitet"><i class="fa fa-angle-double-right"></i>Lajmi fundit</a></li>
+                    <li><a href="/Fundit"><i class="fa fa-angle-double-right"></i>Aktualitet</a></li>
+                    <li><a href="/Rajoni"><i class="fa fa-angle-double-right"></i>Rajoni</a></li>
+                    <li><a href="/Bota"><i class="fa fa-angle-double-right"></i>Bota</a></li>
+                    <li><a href="/Showbiz"><i class="fa fa-angle-double-right"></i>Showbizz</a></li>
+                    <li><a href="/Horoskopi"><i class="fa fa-angle-double-right"></i>Horoskopi</a></li>
+                    <li><a href="/Sport"><i class="fa fa-angle-double-right"></i>Sporti</a></li>
+                    <li><a href="/Kultura"><i class="fa fa-angle-double-right"></i>Kulture</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <h5>Te Tjera</h5>
+                <ul class="list-unstyled quick-links">
+                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Ekonomi</a></li>
+                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Intervista</a></li>
+                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Politik</a></li>
+                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Opinion</a></li>
+                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Njoftime</a></li>
+                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Guzhine</a></li>
+                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Fashion</a></li>
+                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Blog</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <h5>Informacione</h5>
+                <ul class="list-unstyled quick-links">
+                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Kontakt</a></li>
+                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Rreth Albania Daily Life</a></li>
+                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Privacy Policy</a></li>
+                    <li><a href="#" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                <ul class="list-unstyled list-inline social text-center">
+                    <li class="list-inline-item"><a href=""><i class="fa fa-facebook"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li class="list-inline-item"><a href="#" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                </ul>
+            </div>
+            <hr>
+        </div>	
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                <p class="h5">© All right Reversed <a class="text-green ml-2" href="#" target="_blank">-RR TECH IT-</a></p>
+                <p class="h6">Since 2023</p>
+            </div>
+            <hr>
+        </div>	
+    </div>
+</section>
+<!-- ./Footer -->
+<script>
+    function updateCalendar() {
+    var date = new Date();
+    var options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+    };
+
+    var locale = 'en-US'; // Set the locale to English for date formatting
+    var formattedDate = date.toLocaleDateString(locale, options);
+
+    var translatedDate = translateToAlbanian(formattedDate);
+    document.getElementById('calendar').innerText = translatedDate;
+    }
+
+    function translateToAlbanian(dateString) {
+    var weekdays = {
+    Monday: 'E Hënë',
+    Tuesday: 'E Martë',
+    Wednesday: 'E Mërkurë',
+    Thursday: 'E Enjte',
+    Friday: 'E Premte',
+    Saturday: 'E Shtunë',
+    Sunday: 'E Diel'
+    };
+
+    var months = {
+    January: 'Janar',
+    February: 'Shkurt',
+    March: 'Mars',
+    April: 'Prill',
+    May: 'Maj',
+    June: 'Qershor',
+    July: 'Korrik',
+    August: 'Gusht',
+    September: 'Shtator',
+    October: 'Tetor',
+    November: 'Nëntor',
+    December: 'Dhjetor'
+    };
+
+    // Replace English weekday and month names with Albanian translations
+    for (var key in weekdays) {
+    dateString = dateString.replace(key, weekdays[key]);
+    }
+    for (var key in months) {
+    dateString = dateString.replace(key, months[key]);
+    }
+
+    return dateString;
+    }
+
+// Update the calendar on page load
+updateCalendar();
+
+    <!---------------------------------------------------------------->
+    function startTime() {
+    const today = new Date();
+    let h = today.getHours();
+    let m = today.getMinutes();
+    let s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('clock').innerHTML =  h + ":" + m + ":" + s;
+    setTimeout(startTime, 1000);
+    }
+
+    function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+
+</body>
+</html>
